@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KidCalc</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+</head>
+<body class="default-theme">
+  <header>
+    <h1>Welcome to KidCalc</h1>
+  </header>
+  
+  <main>
+    <section id="login">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" required>
+
+        <label for="theme">Preferred Theme:</label>
+        <select id="theme">
+          <option value="space">Space</option>
+          <option value="dinosaurs">Dinosaurs</option>
+          <option value="cars">Cars</option>
+          <option value="marvel">Marvel</option>
+        </select>
+
+        <button type="submit">Start</button>
+      </form>
+    </section>
+
+    <section id="kidCalc">
+      <h2>Practice Math!</h2>
+      <p>Solve the following problem:</p>
+      <p id="mathQuestion"></p>
+      <input type="number" id="answer">
+      <button onclick="checkAnswer()">Submit</button>
+    </section>
+
+    <section id="infoBar">
+      <h2>Information Bar</h2>
+      <p id="infoMessage">Welcome! Please log in to start.</p>
+    </section>
+  </main>
+</body>
+</html>

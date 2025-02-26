@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KidCalc Interactive</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="default-theme">
+  <header>
+    <h1>Welcome to KidCalc</h1>
+    <h2 id="welcomeMessage"></h2>
+  </header>
+  
+  <main>
+    <section id="login">
+      <h2>Login</h2>
+      <form id="loginForm" onsubmit="setUserName(event)">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" required>
+
+        <label for="theme">Preferred Theme:</label>
+        <select id="theme" onchange="document.body.className = this.value + '-theme'">
+          <option value="default">Default</option>
+          <option value="space">Space</option>
+          <option value="dinosaurs">Dinosaurs</option>
+          <option value="cars">Cars</option>
+          <option value="marvel">Marvel</option>
+        </select>
+
+        <button type="submit">Start</button>
+      </form>
+    </section>
+
+    <section id="kidCalc">
+      <h2>Practice Math!</h2>
+      <p>Correct Answers: <span id="correctCounter">0</span></p>
+      <div id="mathExpression"></div>
+      <div class="buttons">
+        <div class="number-buttons">
+          <button onclick="addToExpression('0')">0</button>
+          <button onclick="addToExpression('1')">1</button>
+          <button onclick="addToExpression('2')">2</button>
+          <button onclick="addToExpression('3')">3</button>
+          <button onclick="addToExpression('4')">4</button>
+          <button onclick="addToExpression('5')">5</button>
+          <button onclick="addToExpression('6')">6</button>
+          <button onclick="addToExpression('7')">7</button>
+          <button onclick="addToExpression('8')">8</button>
+          <button onclick="addToExpression('9')">9</button>
+        </div>
+        <div class="operator-buttons">
+          <button onclick="addToExpression('+')">+</button>
+          <button onclick="addToExpression('-')">-</button>
+          <button onclick="addToExpression('>')">></button>
+          <button onclick="addToExpression('<')"> < </button>
+          <button onclick="addToExpression('=')">=</button>
+        </div>
+      </div>
+      <input type="text" id="answer" placeholder="Enter your answer" inabled>
+      <button onclick="submitAnswer()">Submit</button>
+      <button onclick="clearExpression()">Clear</button>
+      <p id="feedback"></p>
+    </section>
+
+    <section id="infoBar">
+      <h2>Information Bar</h2>
+      <p id="infoMessage">Choose a theme and start practicing!</p>
+    </section>
+  </main>
+  
+  <script>
+    let correctAnswers = 0;
+
+    function setUserName(event) {
+      event.preventDefault();
+      const userName = document.getElementById("name").value;
+      document.getElementById("welcomeMessage").textContent = `Welcome, ${userName}! Have fun practicing math!`;
+    }
+
+    function submitAnswer() {
+      // Assume answer checking logic here
+      correctAnswers++;
+      document.getElementById("correctCounter").textContent = correctAnswers;
+      document.getElementById("feedback").textContent = "Great job! Keep going!";
+    }
+  </script>
+</body>
+</html>
